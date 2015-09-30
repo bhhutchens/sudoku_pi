@@ -50,11 +50,14 @@ class Sudoku:
     violet = [255, 0, 255]
     ultraviolet = [255, 0, 128]
     white = [255, 255, 255]
+    black = [0, 0, 0]
     solution_board_with_colors = []
     row_index = 0
     for row in self.solution_board:
       column_index = 0
       for cell in row:
+        if ccell =!:
+          cell_color = black
         if cell == 1:
           cell_color = red
         if cell == 2:
@@ -74,8 +77,8 @@ class Sudoku:
         if cell == 9:
           cell_color = white
         # need to trim every 9th cell per row and the last row
-        if row_index != 8 and column_index != 8
-          solution_board_with_colors[row_index][column_index] = cell_color
+        if row_index != 8 and column_index != 8:
+          solution_board_with_colors.append(cell_color)
         column_index += 1
       row_index += 1
     sense.set_pixels(sudoku.solution_board_with_colors)
