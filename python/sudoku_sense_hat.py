@@ -37,10 +37,10 @@ class Sudoku:
           if self.check_if_solved() == True:
             break
           column_index += 1
+          self.send_board_to_sense_hat()
+          sleep(1)
         row_index += 1
         print("now here")
-        self.send_board_to_sense_hat()
-        sleep(1)
 
   def send_board_to_sense_hat(self):
     red = [255, 0, 0]
@@ -58,7 +58,7 @@ class Sudoku:
     for row in self.solution_board:
       column_index = 0
       for cell in row:
-        if ccell = "-":
+        if cell == "-":
           cell_color = black
         if cell == 1:
           cell_color = red
@@ -158,8 +158,10 @@ class Sudoku:
 sense = SenseHat()
 sense.clear
 sense.low_light = True
+sense.rotation = 90
 
-while True
+while True:
+  sense.clear
+  sense.low_light = True
   sudoku_board = Sudoku("---26-7-168--7--9-19---45--82-1---4---46-29---5---3-28--93---74-4--5--367-3-18---")
   sudoku_board.solve()
-  sense.clear
