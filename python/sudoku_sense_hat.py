@@ -41,15 +41,44 @@ class Sudoku:
         self.send_board_to_sense_hat()
 
   def send_board_to_sense_hat(self):
-    1 = [255, 0, 0]
-    2 = [255, 128, 0]
-    3 = [255, 255, 0]
-    4 = [0, 255, 0]
-    5 = [0, 0, 255]
-    6 = [128, 0 255]
-    7 = [255, 0, 255]
-    8 = [255, 0, 128]
-    sense.set_pixels(sudoku.solution_board)
+    red = [255, 0, 0]
+    orange = [255, 128, 0]
+    yellow = [255, 255, 0]
+    green = [0, 255, 0]
+    blue = [0, 0, 255]
+    indigo = [128, 0, 255]
+    violet = [255, 0, 255]
+    ultraviolet = [255, 0, 128]
+    white = [255, 255, 255]
+    solution_board_with_colors = []
+    row_index = 0
+    for row in self.solution_board:
+      column_index = 0
+      for cell in row:
+        if cell == 1:
+          cell_color = red
+        if cell == 2:
+          cell_color = orange
+        if cell == 3:
+          cell_color = yellow
+        if cell == 4:
+          cell_color = green
+        if cell == 5:
+          cell_color = blue
+        if cell == 6:
+          cell_color = indigo
+        if cell == 7:
+          cell_color = violet
+        if cell == 8:
+          cell_color = ultraviolet
+        if cell == 9:
+          cell_color = white
+        # need to trim every 9th cell per row and the last row
+        if row_index != 8 and column_index != 8
+          solution_board_with_colors[row_index][column_index] = cell_color
+        column_index += 1
+      row_index += 1
+    sense.set_pixels(sudoku.solution_board_with_colors)
 
   def check_if_solved(self):
     for row in self.solution_board:
