@@ -38,7 +38,6 @@ class Sudoku:
             break
           column_index += 1
           self.send_board_to_sense_hat()
-          sleep(1)
         row_index += 1
         print("now here")
 
@@ -81,9 +80,10 @@ class Sudoku:
         # need to trim every 9th cell per row and the last row
         if row_index != 8 and column_index != 8:
           solution_board_with_colors.append(cell_color)
+          sense.set_pixels(solution_board_with_colors)
+          sleep(1)
         column_index += 1
       row_index += 1
-    sense.set_pixels(solution_board_with_colors)
 
   def check_if_solved(self):
     for row in self.solution_board:
