@@ -27,10 +27,11 @@ class Sudoku:
             missing_numbers = self.find_missing_numbers(all_known_numbers)
             if len(missing_numbers) == 1:
               self.solution_board[row_index][column_index] = missing_numbers[0]
-              self.send_board_to_sense_hat()
+              # self.output(self.solution_board)
           if self.check_if_solved() == True:
             break
           column_index += 1
+          self.send_board_to_sense_hat()
         row_index += 1
 
   def send_board_to_sense_hat(self):
@@ -137,6 +138,14 @@ class Sudoku:
       if possible_number not in all_known_numbers:
         missing_numbers.append(possible_number)
     return missing_numbers
+
+  def output(self, solution_board):
+    print
+    for row in self.solution_board:
+      for cell in row:
+        print "%s " % cell
+    print
+
 
 sense = SenseHat()
 sense.clear
