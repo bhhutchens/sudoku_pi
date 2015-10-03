@@ -33,6 +33,7 @@ class Sudoku:
             if len(missing_numbers) == 1:
               self.solution_board[row_index][column_index] = missing_numbers[0]
               print("here")
+              sleep(1)
               # self.output(self.solution_board)
           if self.check_if_solved() == True:
             break
@@ -80,8 +81,7 @@ class Sudoku:
         # need to trim every 9th cell per row and the last row
         if row_index != 8 and column_index != 8:
           solution_board_with_colors.append(cell_color)
-          print len(solution_board_with_colors)
-          sleep(1)
+          # print len(solution_board_with_colors)
         column_index += 1
       row_index += 1
     sense.set_pixels(solution_board_with_colors)
