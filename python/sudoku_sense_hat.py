@@ -154,5 +154,18 @@ sense.rotation = 90
 while True:
   sense.clear
   sense.low_light = True
-  sudoku_board = Sudoku("---26-7-168--7--9-19---45--82-1---4---46-29---5---3-28--93---74-4--5--367-3-18---")
-  sudoku_board.solve()
+  sudoku_board_1 = Sudoku("---26-7-168--7--9-19---45--82-1---4---46-29---5---3-28--93---74-4--5--367-3-18---")
+  sudoku_board_2 = Sudoku("--5-3--819-285--6-6----4-5---74-283-34976---5--83--49-15--87--2-9----6---26-495-3")
+  sudoku_board_3 = Sudoku("29-5----77-----4----4738-129-2--3-648---5--7-5---672--3-9--4--5----8-7---87--51-9")
+  sudoku_board_4 = Sudoku("-8--2-----4-5--32--2-3-9-466---9---4---64-5-1134-5-7--36---4--24-723-6-----7--45-")
+  sudoku_board_5 = Sudoku("6-873----2-----46-----6482--8---57-19--618--4-31----8-86-2---39-5----1--1--4562--")
+  sudoku_board_1.solve()
+  sense.clear
+  sudoku_board_2.solve()
+  sense.clear
+  sudoku_board_3.solve()
+  sense.clear
+  sudoku_board_4.solve()
+  sense.clear
+  sudoku_board_5.solve()
+  sense.clear
