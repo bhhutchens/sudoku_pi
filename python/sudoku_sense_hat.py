@@ -27,14 +27,12 @@ class Sudoku:
             missing_numbers = self.find_missing_numbers(all_known_numbers)
             if len(missing_numbers) == 1:
               self.solution_board[row_index][column_index] = missing_numbers[0]
-              print("here")
               sleep(1)
           if self.check_if_solved() == True:
             break
           column_index += 1
           self.send_board_to_sense_hat()
         row_index += 1
-        print("now here")
 
   def send_board_to_sense_hat(self):
     red = [255, 0, 0]
