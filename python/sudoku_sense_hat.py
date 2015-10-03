@@ -7,6 +7,9 @@ class Sudoku:
     # creates the sudoku board as two-dimensional list
     self.solution_board = []
     rows = re.findall('.........', unsolved_board)
+    print "***********"
+    print rows
+    print "***********"
     for row_string in rows:
       row_list = []
       for cell in row_string:
@@ -14,6 +17,8 @@ class Sudoku:
           cell = int(cell)
         row_list.append(cell)
       self.solution_board.append(row_list)
+    print "***********"
+    print self.solution_board
     self.solved = False
 
   def solve(self):
@@ -27,12 +32,14 @@ class Sudoku:
             missing_numbers = self.find_missing_numbers(all_known_numbers)
             if len(missing_numbers) == 1:
               self.solution_board[row_index][column_index] = missing_numbers[0]
+              print("here")
               # self.output(self.solution_board)
           if self.check_if_solved() == True:
             break
           column_index += 1
           self.send_board_to_sense_hat()
         row_index += 1
+        print("now here")
 
   def send_board_to_sense_hat(self):
     red = [255, 0, 0]
@@ -83,6 +90,7 @@ class Sudoku:
       for cell in row:
         if cell == "-":
           return
+    print("solved")
     self.solved = True
 
   def find_all_numbers(self, row_index, column_index):
